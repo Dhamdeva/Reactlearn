@@ -67,7 +67,7 @@ function Table() {
                     return b.MonthlyIncome - a.MonthlyIncome;
                 })
             }
-            setnameListFilter(sortedList.reverse());
+            setnameListFilter(sortedList);
         }
 
     }, [descending]);
