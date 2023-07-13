@@ -1,9 +1,10 @@
-import React from "react"
+import React from "react";
+import './Staticdesign.css';
 
 export function Navbar(){
     return(
         
-        <nav className="navbar navbar-expand-lg py-4 " >
+        <nav className="navbar navbar-expand-lg py-4 p-0 " >
           <div className="container-fluid">
             <a className="navbar-brand" href="/">Navbar</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -99,8 +100,8 @@ export function Navbar(){
 
 export function Mobile(props){
     return(
-        <div classNameName="col-md-3 mt-4 p-3 product text-center">
-            <img src={props.img} alt=".." classNameName="img-fluid" />
+        <div className="col-md-3 mt-4 p-3 product text-center">
+            <img src={props.img} alt=".." className="img-fluid" />
             <h2>{props.h2}</h2>
             <p>{props.price}</p>
             <p>{props.discount}</p>

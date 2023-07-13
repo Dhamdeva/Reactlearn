@@ -37,7 +37,7 @@ td{
 .student{
   overflow-x: scroll;
 }
-button{
+.but{
   border: none;
   color: white !important;
   background-color: #08546c !important;
@@ -46,4 +46,16 @@ button{
 i{
   color: white;
   font-size: 10px;
+}
+.table{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add{
+  box-shadow: 0 0 5px;
+}
+.add button,.table button{
+  color: #08546c;
+  background-color: #a7bbd9;
 }

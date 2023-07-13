@@ -1,7 +1,9 @@
 function Contact(){
-    return(
-        <h1>Welcome to Contact Page</h1>
-    )
-}
+    const onClick = () => {
+        window.open("https://timmousk.com", "_blank", "noopener,noreferrer");
+      };
+    
+      return <div onClick={onClick}>link</div>;
+    };
 
 export default Contact;

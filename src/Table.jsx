@@ -114,17 +114,21 @@ function Table() {
                         <th>Id</th>
                         <th>
                             Name
-                            <button className="mx-2" onClick={(e) => setAscending('name')} ><i className="fa-solid fa-arrow-up " ></i></button>
-                            <button onClick={(e) => setDescending('name')} ><i className="fa-solid fa-arrow-down"></i></button>
+                            <button className="mx-2 but" onClick={(e) => setAscending('name')} ><i className="fa-solid fa-arrow-up " ></i></button>
+                            <button className=" but" onClick={(e) => setDescending('name')} ><i className="fa-solid fa-arrow-down"></i></button>
                         </th>
                         <th>
                             Age
-                            <button className="mx-2" onClick={(e) => setAscending('age')}><i className="fa-solid fa-arrow-up " ></i></button>
-                            <button onClick={(e) => setDescending('age')}><i className="fa-solid fa-arrow-down"></i></button>
+                            <button className="mx-2 but" onClick={(e) => setAscending('age')}><i className="fa-solid fa-arrow-up " ></i></button>
+                            <button  className=" but"onClick={(e) => setDescending('age')}><i className="fa-solid fa-arrow-down"></i></button>
                         </th>
                         <th>Department</th>
                         <th>Jobrole</th>
-                        <th>Salary <button className="mx-2" onClick={(e) => setAscending('salary')}><i className="fa-solid fa-arrow-up " ></i></button><button onClick={(e) => setDescending('salary')} ><i className="fa-solid fa-arrow-down"></i></button></th>
+                        <th>
+                            Salary 
+                            <button className="mx-2 but" onClick={(e) => setAscending('salary')}><i className="fa-solid fa-arrow-up " ></i></button>
+                            <button className=" but"onClick={(e) => setDescending('salary')} ><i className="fa-solid fa-arrow-down"></i></button>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>

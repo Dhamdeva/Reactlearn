@@ -17,7 +17,7 @@ function Studentform() {
     const [result, setResult] = useState("");
     const [formList, setFormList] = useState([]);
     const [filterStatus, setFilterStatus] = useState();
-
+    const [editList, setEditList] = useState('edit');
 
     const handleSubmit = () => {
         const newForm = {
@@ -49,7 +49,14 @@ function Studentform() {
         setTotal();
         setResult();
         setFormList([...formList, newForm]);
-
+        if(editList === 'edit'){
+            setFormList([...formList,newForm]);
+        }else{
+            const updatedList=[...formList];
+            updatedList[editList]=newForm;
+            setFormList(updatedList);
+            setEditList('edit');
+        }
 
     };
     const totalMark = (element) => {
@@ -71,11 +78,23 @@ function Studentform() {
         return "Pass";
     };
 
-
+    const handleEdit =(index) =>{
+        const itemEdit =formList[index];
+        setAge(itemEdit.age);
+        setEnglish(itemEdit.english);
+        setTamil(itemEdit.tamil);
+        setMaths(itemEdit.maths);
+        setSocial(itemEdit.social);
+        setName(itemEdit.name);
+        setScience(itemEdit.science);
+        setFname(itemEdit.fname);
+        setEditList(index);
+        
+    }
     return (
         <div className="container-fluid p-0">
             
-            <div className="container-fluid justify-content-around form m-5">
+            <div className="container-fluid col-lg-11 mx-auto justify-content-around form m-5">
                 <h2 className="text-center">Student Register Form</h2>
                 <label htmlFor="html" className="col-md-5 mx-3 mt-2">Name:
                     <input className="col-md-12 py-2 mx-3 mt-2" type="text" value={name} onChange={(e) => setName(e.target.value)} />
@@ -101,7 +120,9 @@ function Studentform() {
                 <label htmlFor="html" className="col-md-5 mx-3 mt-2">Social:
                     <input className="col-md-12 py-2 mx-3 mt-2" type="number" value={social} onChange={(e) => setSocial(e.target.value)} />
                 </label>
-                <button onClick={handleSubmit} className=" button  my-4">Submit</button>
+                <button onClick={handleSubmit} className=" button  my-4">
+                    {editList === 'edit' ? 'Add' :"Update"}
+                </button>
             </div>
             <h3 className="text-center"> Student Data</h3>
             <div className="student">
@@ -125,6 +146,7 @@ function Studentform() {
                     <td style={{ border: '1px solid black', padding: '20px' }}>Social</td>
                     <td style={{ border: '1px solid black', padding: '20px' }}>Total</td>
                     <td style={{ border: '1px solid black', padding: '20px' }}>Result</td>
+                    <td style={{ border: '1px solid black', padding: '20px' }}>Action</td>
                 </tr>
                 {formList.filter((markList) => {
                     if (filterStatus) {
@@ -132,9 +154,9 @@ function Studentform() {
                     } else {
                         return  markList;
                     }
-                }).map((element) => {
+                }).map((element,index) => {
 
-                    return (<tr key={element}>
+                    return (<tr key={index} >
                         <td style={{ border: '1px solid black', padding: '20px' }}>{element.id}</td>
                         <td style={{ border: '1px solid black', padding: '20px' }}>{element.name}</td>
                         <td style={{ border: '1px solid black', padding: '20px' }}>{element.fname}</td>
@@ -146,6 +168,9 @@ function Studentform() {
                         <td style={{ border: '1px solid black', padding: '20px' }}>{element.social}</td>
                         <td style={{ border: '1px solid black', padding: '20px' }}>{element.total}</td>
                         <td style={{ border: '1px solid black', padding: '20px' }}>{element.result}</td>
+                        <td style={{ border: '1px solid black', padding: '20px' }}>
+                        <button onClick={() => handleEdit(index)}>Edit</button>
+                        </td>
 
                     </tr>)
                 })}
